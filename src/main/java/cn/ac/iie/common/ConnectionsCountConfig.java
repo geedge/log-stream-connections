@@ -13,7 +13,6 @@ public class ConnectionsCountConfig implements Serializable {
     public static final String LOG_STRING_SPLITTER = ",";
     public static final String EMPTY_OPTION_CHARACTER = "-";
 
-
     public static final Integer MAX_NUMBER = ConnectionsCountConfigurations.getIntProperty(1, "max.number");
     public static final Integer SPOUT_PARALLELISM = ConnectionsCountConfigurations.getIntProperty(1, "topology.spout.parallelism");
     public static final String RESULT_SOUTPUT_TOPIC = ConnectionsCountConfigurations.getStringProperty(1, "results.output.topics");

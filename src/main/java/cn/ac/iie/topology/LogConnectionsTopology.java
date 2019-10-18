@@ -3,7 +3,6 @@ package cn.ac.iie.topology;
 
 import cn.ac.iie.bolt.InsertBolt;
 import cn.ac.iie.bolt.TimeCalculateBolt;
-import cn.ac.iie.bolt.TimeCalculateTestBolt;
 import cn.ac.iie.common.ConnectionsCountConfig;
 import cn.ac.iie.spout.CustomizedKafkaSpout;
 import org.apache.log4j.Logger;
@@ -56,10 +55,8 @@ public class LogConnectionsTopology {
     private void buildTopology() {
         builder = new TopologyBuilder();
         builder.setSpout("CustomizedKafkaSpout", new CustomizedKafkaSpout(), ConnectionsCountConfig.SPOUT_PARALLELISM);
-//        builder.setBolt("TimeCalculateBolt", new TimeCalculateBolt(), ConnectionsCountConfig.TIME_CALCULATE_BOLT_PARALLELISM).localOrShuffleGrouping("CustomizedKafkaSpout");
-//        builder.setBolt("InsertBolt", new InsertBolt(), 1).localOrShuffleGrouping("TimeCalculateBolt");
-        builder.setBolt("TimeCalculateTestBolt", new TimeCalculateTestBolt(), ConnectionsCountConfig.TIME_CALCULATE_BOLT_PARALLELISM).localOrShuffleGrouping("CustomizedKafkaSpout");
-        builder.setBolt("InsertBolt", new InsertBolt(), 1).localOrShuffleGrouping("TimeCalculateTestBolt");
+        builder.setBolt("TimeCalculateBolt", new TimeCalculateBolt(), ConnectionsCountConfig.TIME_CALCULATE_BOLT_PARALLELISM).localOrShuffleGrouping("CustomizedKafkaSpout");
+        builder.setBolt("InsertBolt", new InsertBolt(), 1).localOrShuffleGrouping("TimeCalculateBolt");
 
     }
 

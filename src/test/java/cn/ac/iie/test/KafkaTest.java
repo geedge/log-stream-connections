@@ -31,7 +31,7 @@ public class KafkaTest {
                 urlsBean.setC2s_pkt_num(1000);
                 urlsBean.setS2c_byte_num(1000);
                 urlsBean.setS2c_pkt_num(1000);
-                kafkaProducer.send(new ProducerRecord<>("test", JSONObject.toJSONString(urlsBean)), new Callback() {
+                kafkaProducer.send(new ProducerRecord<>("JsonTest", JSONObject.toJSONString(urlsBean)), new Callback() {
                     @Override
                     public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                         if (e != null){
